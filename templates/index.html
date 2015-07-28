@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-<ul>
-    {% for person in persons %}
-        <li>
-            <h2>{{ person.firstname }} {{ person.lastname }}</h2>
-            <h4>Merits</h4>
-            <ul>
-                {% for merit in person.merits %}
-                    <li>{{ merit.year }}: {{ merit.type.name }}</li>
-                {% endfor %}
-            </ul>
-        </li>
-    {% endfor %}
-</ul>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block body %}
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="col-xs-12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for person in persons %}
+                        <tr>
+                            <td>
+                                <a href="{{ url_for("person", id=person.url) }}">
+                                    {{ person.firstname }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ person.lastname }}
+                            </td>
+                            <td>
+                                {{ person.email }}
+                            </td>
+                        </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

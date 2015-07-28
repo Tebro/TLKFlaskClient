@@ -1,6 +1,6 @@
 config = {
     "backend": {
-        "url": "http://api:8000/",
-        'auth': ("root", "root")
+        "url": "http://tebro.fi:8000/",
+        'auth': ("root", "pekkapouta")
     }
 }

@@ -19,7 +19,15 @@ def get_person_merits(person):
     for merit in person["merits"]:
         merit_json = tlk_url_request(str(merit))
         merit_type_json = tlk_url_request(str(merit_json["type"]))
-        merits.append(str(merit_type_json["name"]))
+        merit_obj = {
+            "url": str(merit_json['url']),
+            "year": str(merit_json['year']),
+            'type': {
+                "url": str(merit_type_json['url']),
+                "name": str(merit_type_json['name'])
+            }
+        }
+        merits.append(merit_obj)
 
     return merits
 

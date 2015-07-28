@@ -12,7 +12,7 @@
             <h4>Merits</h4>
             <ul>
                 {% for merit in person.merits %}
-                    <li>{{ merit }}</li>
+                    <li>{{ merit.year }}: {{ merit.type.name }}</li>
                 {% endfor %}
             </ul>
         </li>

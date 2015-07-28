@@ -15,4 +15,4 @@ if __name__ == '__main__':
     #Read configuration
     with open("%s/config.yml" % os.path.dirname(os.path.realpath(__file__)), 'r') as f:
         config = yaml.load(f)
-    app.run()
+    app.run(host="0.0.0.0")

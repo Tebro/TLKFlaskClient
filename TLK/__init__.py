@@ -36,3 +36,6 @@ def get_persons():
         person.lastname = str(person_json["lastname"])
 
         person.merits = get_person_merits(person_json)
+        persons.append(person)
+
+    return persons

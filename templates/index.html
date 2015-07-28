@@ -5,7 +5,18 @@
     <title></title>
 </head>
 <body>
-<h1>Hello World</h1>
-<p>The URL is: {{ the_url }}</p>
+<li>
+    {% for person in persons %}
+        <ul>
+            <h2>{{ person.firstname }} {{ person.lastname }}</h2>
+            <h4>Merits</h4>
+            <li>
+                {% for merit in merits %}
+                    <ul>{{ merit }}</ul>
+                {% endfor %}
+            </li>
+        </ul>
+    {% endfor %}
+</li>
 </body>
 </html>

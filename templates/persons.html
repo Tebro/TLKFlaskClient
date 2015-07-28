@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
-
+{% block title %}
+Persons
+{% endblock %}
 {% block body %}
     <div class="col-xs-12">
         <table class="table table-striped">
@@ -14,7 +16,7 @@
                 {% for person in persons %}
                         <tr>
                             <td>
-                                <a href="{{ url_for("person", id=person.url) }}">
+                                <a href="{{ url_for("person", pk=person.pk) }}">
                                     {{ person.firstname }}
                                 </a>
                             </td>
@@ -24,6 +26,7 @@
                             <td>
                                 {{ person.email }}
                             </td>
+
                         </tr>
                 {% endfor %}
             </tbody>

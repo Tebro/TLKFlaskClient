@@ -1,6 +1,59 @@
 {% extends 'base.html' %}
+{% block title %}
+{{ person.firstname }} {{ person.lastname }}
+{% endblock %}
 {% block body %}
 <div>
+<h4>Details</h4>
 {{ person.firstname }} {{ person.lastname }}
+<br>
+{{ person.email }}
 </div>
+{% if more %}
+    <div>
+        <h4>Membership</h4>
+        <ul>
+            {% for member in person.members %}
+                <li>
+                {{ member.year }}: {{ member.type.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h4>Merits</h4>
+        <ul>
+            {% for merit in person.merits %}
+                <li>{{ merit.year }}: {{ merit.type.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h4>Boards</h4>
+        <ul>
+            {% for board in person.boards %}
+                <li>{{ board.year }}: {{ board.type.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h4>Officials</h4>
+        <ul>
+            {% for official in person.officials %}
+                <li>{{ official.year }}: {{ official.type.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <h4>Committees</h4>
+        <ul>
+            {% for committee in person.committees %}
+                <li>{{ committee.year }}: {{ committee.type.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <a href="{{ url_for("person", pk=person.pk) }}">Show Less</a>
+{% else %}
+    <a href="{{ url_for("person", pk=person.pk, more="more") }}">Show More</a>
+{% endif %}
 {% endblock %}

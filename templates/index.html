@@ -5,18 +5,18 @@
     <title></title>
 </head>
 <body>
-<li>
+<ul>
     {% for person in persons %}
-        <ul>
+        <li>
             <h2>{{ person.firstname }} {{ person.lastname }}</h2>
             <h4>Merits</h4>
-            <li>
-                {% for merit in merits %}
-                    <ul>{{ merit }}</ul>
+            <ul>
+                {% for merit in person.merits %}
+                    <li>{{ merit }}</li>
                 {% endfor %}
-            </li>
-        </ul>
+            </ul>
+        </li>
     {% endfor %}
-</li>
+</ul>
 </body>
 </html>

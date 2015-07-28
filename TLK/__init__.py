@@ -2,6 +2,7 @@ __author__ = 'richard'
 import requests, yaml, os
 from .config import config
 
+
 #Helper functions
 def tlk_get_request(endpoint):
     url, auth = get_url_and_auth()
@@ -28,14 +29,13 @@ def get_url_and_auth():
 def get_persons():
     persons = []
     persons_json = tlk_get_request("persons")
-
     for person_json in persons_json:
         person = {}
-        person.url = str(person_json["url"])
-        person.firstname = str(person_json["firstname"])
-        person.lastname = str(person_json["lastname"])
+        person['url'] = str(person_json["url"])
+        person['firstname'] = str(person_json["firstname"])
+        person['lastname'] = str(person_json["lastname"])
 
-        person.merits = get_person_merits(person_json)
+        person['merits'] = get_person_merits(person_json)
         persons.append(person)
 
     return persons

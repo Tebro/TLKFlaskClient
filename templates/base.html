@@ -19,13 +19,21 @@
 
 <div class="container">
     <div class="page-header">
-        <a href="{{ url_for("index") }}"><h1>Welcome <small>TLK member register</small></h1></a>
+        <h1>Welcome <small>TLK member register</small></h1>
     </div>
     <div class="row">
-        {% block body %}
+        <div class="col-lg-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="presentation {% if request.url_rule.endpoint == "index" %}active{% endif %}"><a href="{{ url_for("index") }}">Home</a></li>
+                <li class="presentation {% if request.url_rule.endpoint == "persons" %}active{% endif %}"><a href="{{ url_for("persons") }}">Persons</a></li>
+            </ul>
+        </div>
+        <div class="col-lg-10">
+            {% block body %}
 
-        {% endblock %}
-    </div>
+            {% endblock %}
+        </div>
+        </div>
 </div>
 </body>
 </html>
